@@ -4,7 +4,7 @@
   <title><![CDATA[code/caffeine]]></title>
   <link href="http://codecaffeine.github.com/atom.xml" rel="self"/>
   <link href="http://codecaffeine.github.com/"/>
-  <updated>2013-03-17T17:17:22-04:00</updated>
+  <updated>2013-03-17T17:21:31-04:00</updated>
   <id>http://codecaffeine.github.com/</id>
   <author>
     <name><![CDATA[Matt Thomas]]></name>
@@ -63,7 +63,10 @@
     <link href="http://codecaffeine.github.com/blog/2012/02/11/my-uiviewcontroller-container-phillycocoa-presentation/"/>
     <updated>2012-02-11T08:55:00-05:00</updated>
     <id>http://codecaffeine.github.com/blog/2012/02/11/my-uiviewcontroller-container-phillycocoa-presentation</id>
-    <content type="html"><![CDATA[<p>Last Thursday I did a presentation on <em>UIViewController Containers</em> for <a href="http://phillycocoa.org">PhillyCocoa</a>. My presentation slides can be <a href="http://speakerdeck.com/u/mthomas/p/uiviewcontroller-containers">found on Speaker Deck</a>.</p>
+    <content type="html"><![CDATA[<p>Last Thursday I did a presentation on <em>UIViewController Containers</em> for <a href="http://phillycocoa.org">PhillyCocoa</a>.</p>
+
+<script async class="speakerdeck-embed" data-id="4f3671b268bb50001f010a8b" data-ratio="1.33333333333333" src="http://codecaffeine.github.com//speakerdeck.com/assets/embed.js"></script>
+
 
 <p>The example <strong>Card Stack Controller</strong> project I wrote can be <a href="https://github.com/codecaffeine/CardStackController">found on github</a>. Feel free to leave a comment if you have any questions, corrections, or other thoughts.</p>
 
