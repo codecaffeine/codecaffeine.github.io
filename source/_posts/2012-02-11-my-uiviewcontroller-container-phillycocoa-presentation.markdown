@@ -5,7 +5,9 @@ date: 2012-02-11 08:55
 comments: true
 categories: 
 ---
-Last Thursday I did a presentation on *UIViewController Containers* for [PhillyCocoa](http://phillycocoa.org). My presentation slides can be [found on Speaker Deck](http://speakerdeck.com/u/mthomas/p/uiviewcontroller-containers).
+Last Thursday I did a presentation on *UIViewController Containers* for [PhillyCocoa](http://phillycocoa.org).
+
+<script async class="speakerdeck-embed" data-id="4f3671b268bb50001f010a8b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
 The example **Card Stack Controller** project I wrote can be [found on github](https://github.com/codecaffeine/CardStackController). Feel free to leave a comment if you have any questions, corrections, or other thoughts.
 
