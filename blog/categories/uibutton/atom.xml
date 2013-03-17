@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: UIButton | code/caffeine]]></title>
+  <link href="http://codecaffeine.github.com/blog/categories/uibutton/atom.xml" rel="self"/>
+  <link href="http://codecaffeine.github.com/"/>
+  <updated>2013-03-17T17:17:22-04:00</updated>
+  <id>http://codecaffeine.github.com/</id>
+  <author>
+    <name><![CDATA[Matt Thomas]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Cheap & Easy Buttons for iOS Developers]]></title>
+    <link href="http://codecaffeine.github.com/blog/2011/12/08/cheap-and-easy-buttons-for-ios/"/>
+    <updated>2011-12-08T18:06:00-05:00</updated>
+    <id>http://codecaffeine.github.com/blog/2011/12/08/cheap-and-easy-buttons-for-ios</id>
+    <content type="html"><![CDATA[<p>The UIButton controls in iOS are very basic. Just a white rounded rectangle with a gray border and a label. They're made to look similar to a single grouped UITableView cell. Because of this, it's easy to end up with a boring iOS app without creating your own images for button. So what's a developer to do?</p>
+
+<!--more-->
+
+
+<p>My first bit of advice would be to work with a graphic designer. A graphic designer can help you create a style for you app and quickly create all the resources (including button images) you may need. Unfortunately, graphic designer don't grow on trees and the good ones would need to be paid. For a professional quality app, you should really work with a graphic designer.</p>
+
+<p>Sometimes though, you're just looking for a quick pleasant looking button. Here are some great resources I use for creating button images.</p>
+
+<p><strong>Apple's <a href="http://developer.apple.com/library/iOS/#documentation/AppleApplications/Conceptual/Dashcode_UserGuide/Contents/Resources/en.lproj/Introduction/Introduction.html">Dashcode</a></strong> has a pretty powerful button maker. There are a bunch of preset button templates that you can choose from but Dashcode's real power is the button inspector which has a lot of styles and effects.</p>
+
+<p><img class="center" src="/images/ButtonStyle.png" width="264" height="434" title="Dashcode's Button Inspector" ></p>
+
+<p><strong>Cédric Luthi's <a href="https://github.com/0xced/UIKit-Artwork-Extractor">UIKit Artwork Extractor</a></strong> is an iOS Simulator app that can be used to download images from UIKit and various other iOS frameworks. You can search for images used the the framework like buttons and save these to your hard drive.</p>
+
+<p><img class="center" src="/images/UIKitArtworkSearch.png" width="396" height="744" title="UIKit Artwork Inspector search" ></p>
+
+<p>The UIArtwork Kit Extractor also has a tab that uses Apple's private UIGlassButton class to create a real awesome looking glass button. Just don't use the <a href="http://twitter.com/#!/schwa/status/9288691077">UIGlassButton code</a> in your shipping app. Otherwise you will probably be rejected from the App Store.</p>
+
+<p><img class="center" src="/images/UIKitArtworkGlassButton.png" width="396" height="744" title="UIKit Artwork Inspector glass button creator" ></p>
+
+<p><strong><a href="http://houseofbuttons.tumblr.com/">House of Buttons</a></strong> and <strong><a href="http://dribbble.com/search?q=button">Dribbble</a></strong> are great resources for getting button inspirations. Just don't steal their work. More importantly, <a href="http://dribbble.com">Dribbble</a> is a great resource for meeting graphic designers so you can make quality apps.</p>
+
+<p>Finally, if you are an <strong><a href="http://flyingmeat.com/acorn/">Acorn</a></strong> user, they have a pretty <a href="http://flyingmeat.com/acorn/docs/tutorials.html">awesome tutorial</a> including one on <a href="http://flyingmeat.com/acorn/docs/making%20a%20custom%20web%20button.html">making buttons</a> using vectors so you can resave different sizes. This is handy for dealing with retina display images.</p>
+]]></content>
+  </entry>
+  
+</feed>
