@@ -5,7 +5,7 @@ date: 2013-03-17 09:11
 comments: true
 categories: 
 ---
-Here is the talk I gave for [PhillyCocoa](http://phillycocoa.org) on _Automating Xcode Builds & Distribution_.
+Here is my [PhillyCocoa](http://phillycocoa.org) talk on _Automating Xcode Builds & Distribution_.
 
 <script async class="speakerdeck-embed" data-id="717f6270713201303b9822000a9f3a59" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
