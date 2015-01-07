@@ -6,6 +6,9 @@ comments: false
 sharing: true
 footer: true
 ---
+
+_[view as PDF](resume.pdf)_
+
 ## Profile
 I strive to make good software. This is a deceivingly difficult goal because at its heart, good software is about people. It’s how people communicate and how people express creativity. People are unique and have different areas of expertise and experience. Good software shouldn’t blame the user, it should be forgiving. Good software should be accessible by as many people as possible. Good software should be easy to use but it also must be useful. Good software should be unobtrusive and honest. Good software is about the people who use it.
 
