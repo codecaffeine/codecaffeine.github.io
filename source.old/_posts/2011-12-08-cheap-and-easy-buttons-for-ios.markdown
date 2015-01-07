@@ -15,15 +15,15 @@ Sometimes though, you're just looking for a quick pleasant looking button. Here 
 
 __Apple's [Dashcode](http://developer.apple.com/library/iOS/#documentation/AppleApplications/Conceptual/Dashcode_UserGuide/Contents/Resources/en.lproj/Introduction/Introduction.html)__ has a pretty powerful button maker. There are a bunch of preset button templates that you can choose from but Dashcode's real power is the button inspector which has a lot of styles and effects.
 
-{% img center /images/ButtonStyle.png 264 434 Dashcode's Button Inspector%}
+![Dashcode's Button Inspector](/images/ButtonStyle.png)
 
 __Cédric Luthi's [UIKit Artwork Extractor](https://github.com/0xced/UIKit-Artwork-Extractor)__ is an iOS Simulator app that can be used to download images from UIKit and various other iOS frameworks. You can search for images used the the framework like buttons and save these to your hard drive.
 
-{% img center /images/UIKitArtworkSearch.png 396 744 UIKit Artwork Inspector search%}
+![UIKit Artwork Inspector search](/images/UIKitArtworkSearch.png)
 
 The UIArtwork Kit Extractor also has a tab that uses Apple's private UIGlassButton class to create a real awesome looking glass button. Just don't use the [UIGlassButton code](http://twitter.com/#!/schwa/status/9288691077) in your shipping app. Otherwise you will probably be rejected from the App Store.
 
-{% img center /images/UIKitArtworkGlassButton.png 396 744 UIKit Artwork Inspector glass button creator %}
+![UIKit Artwork Inspector glass button creator](/images/UIKitArtworkGlassButton.png)
 
 __[House of Buttons](http://houseofbuttons.tumblr.com/)__ and __[Dribbble](http://dribbble.com/search?q=button)__ are great resources for getting button inspirations. Just don't steal their work. More importantly, [Dribbble](http://dribbble.com) is a great resource for meeting graphic designers so you can make quality apps.
 
