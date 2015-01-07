@@ -26,9 +26,7 @@ long cc_stringToNumber(const char *string);
 ## Number Theory ##
 Before we start digging into code, what do we actually mean when we write out a number? Well according to Wikipedia's [entry on numbers](http://en.wikipedia.org/wiki/Number):
 
-{% blockquote %}
-In this base ten system, the rightmost digit of a natural number has a place value of one, and every other digit has a place value ten times that of the place value of the digit to its right.
-{% endblockquote %}
+> In this base ten system, the rightmost digit of a natural number has a place value of one, and every other digit has a place value ten times that of the place value of the digit to its right.
 
 Lets look at the numbers 7, 42, and 365 to see how this would work:
 
