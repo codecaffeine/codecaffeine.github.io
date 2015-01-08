@@ -10,7 +10,7 @@ footer: true
 _[view as PDF](resume-matthew-thomas.pdf)_
 
 ## Profile
-Great software can revolutionize how people communicate & express creativity. Poor software can lead to loss of work, time, or money. Inspired by Dieter Rams, I use the following principles in an effort to create great software: 
+Great software can revolutionize how people communicate & express creativity. Poor software can lead to loss of work, time, or money. Inspired by famed designer Dieter Rams, I use the following principles in an effort to create great software: 
 
 - Understand the user and their experience & areas of expertise.
 - Be forgiving, never blame the user.
@@ -66,8 +66,8 @@ BS in Computer Science, 2005
 ## Skills
 
 - **Languages:** C (10+), Objective-C (7), XML/XSLT (7), Javascript (6), Java (6), Ruby (4),  PHP (2), Perl (2), Swift (0.5)
-- **Frameworks:** Cocoa (7), CocoaTouch (6), CoreAnimation (4), jQuery (2), Rails (2), Sinatra (1), D3.js (1).
-- **Testing & Debugging:** Instruments (6), GDB/LLDB (5), XCUnit/SenTest (4)
+- **Frameworks:** Cocoa (7), CocoaTouch (6), CoreAnimation (4), AFNetworking (4),jQuery (2), Rails (2), Sinatra (1), D3.js (1)
+- **Testing & Debugging:** Instruments (6), GDB/LLDB (5), XCUnit/SenTest (4), OCMock (2)
 - **Databases:** MySQL (5), SQLite (5)
 - **Other:** Accessibility & Usability Design (7), OAuth2 (1), Audio Programming (1)
 
