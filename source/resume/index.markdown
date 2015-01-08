@@ -7,10 +7,16 @@ sharing: true
 footer: true
 ---
 
-_[view as PDF](resume.pdf)_
+_[view as PDF](resume-matthew-thomas.pdf)_
 
 ## Profile
-I strive to make good software. This is a deceivingly difficult goal because at its heart, good software is about people. It’s how people communicate and how people express creativity. People are unique and have different areas of expertise and experience. Good software shouldn’t blame the user, it should be forgiving. Good software should be accessible by as many people as possible. Good software should be easy to use but it also must be useful. Good software should be unobtrusive and honest. Good software is about the people who use it.
+Great software can revolutionize how people communicate & express creativity. Poor software can lead to loss of work, time, or money. Inspired by Dieter Rams, I use the following principles in an effort to create great software: 
+
+- Understand the user and their experience & areas of expertise.
+- Be forgiving, never blame the user.
+- Be accessible by as many people as possible.
+- Be easy-to-use, but not at the expense of usefulness.
+- Be unobtrusive and honest.
 
 ## Experience
 ### Lead iOS Software Developer, [LayerVault][15]
@@ -18,29 +24,27 @@ _(July 2013–Present)_
 
 I am the lead developer of LayerVault for Mac, which designers use to remotely sync and collaborate on design assets. Notable contributions include:
 
-- Working closely with the server engineers to develop a modern API for remotely syncing files between computers and a centralized server.
 - Implementing sync engine to handle multiple files uploading and updating concurrently to keep the files up-to-date while minimizing resource usage.
-- Efficiently tracking file changes and updating only changed data, rather than the whole file.
-- Extracting specific art assets from design files so collaborators don’t have to deal with design specific file formats.
+- Working closely with the Rails website engineers to develop a modern API for remotely syncing files between computers and a centralized server.
+- Efficiently tracking file changes and updating only changed data, rather than the whole file to minimize bandwidth usage and storage space.
+- Extracting specific art assets from design files to improve customer workflow.
 - Involvement in support conversations to better understand users’ needs.
 
 ### Lead iOS Software Developer, [Unbound Medicine][5]
 _(November 2005–July 2013)_
 
-Working for a Palm and Windows Mobile medical software company, I advocated for development of  the iPhone, for which I became lead developer. Notable contributions include:
+Working for a Palm and Windows Mobile medical software company, I advocated for releasing our software on the iPhone and became the lead developer. Notable contributions include:
 
-- Ported our publishing platform to iOS and used it to create and distribute 50+ medical apps to the App Store.
+- Ported our publishing platform to iOS and used it to create and distribute [50+ medical apps to the App Store][19].
 - Created a centralized sync service to ensure medical information is always up-to-date.
-- Worked closely with designers on the UI and interaction design, including the design language for both iOS and non-iOS apps.
-- In charge of submitting and updating all 50+ apps to the App Store, while handling various issues related to code signing and the review process.
-- Writing the original mobile optimized version of the company’s web platform which was ready at the original iPhone launch.
-- Developing web-based tools for medical editors to review and edit content including rich-text editing.
-- Creating tools and processes to convert various publishing formats to a common format utilized by all platforms.
+- Worked closely with graphic artists on the UI and interaction design, including the design language for both iOS and non-iOS apps.
+- Wrote the original mobile optimized version of the company’s web platform which was ready at the original iPhone launch.
+- Developed rich-text web-based tools for medical editors to review and edit content
 
 ### Software Developer, [Rochester Institute of Technology Library][7]
 _(June 2004–May 2005)_
 
-At RIT’s Educational Technology Center, I led a student-run team of developers to migrate our old media and equipment inventory system to a modern web-based system. As the team leader, I was responsible for managing project requirements, setting deadlines, and helping program & testing the system.
+At RIT’s Educational Technology Center, I led a student-run team of developers to migrate our old media and equipment inventory system to a modern web-based system. As the team leader I was responsible for managing project requirements, setting deadlines, programing, and testing the system.
 
 ### Software Development CO-OP, [Boeing Rotorcraft][9]
 _(June 2003–November 2003)_
@@ -48,32 +52,24 @@ _(June 2003–November 2003)_
 As part of my CO-OP program, I worked on the V-22 avionic system assisting with software quality assurance testing, participating in software debugging roundtables, and investigating improvements in the software testing system.
 
 ## Education
-[Rochester Institute of Technology][6], Rochester, NY  
+### [Rochester Institute of Technology][6], Rochester, NY  
 BS in Computer Science, 2005
 
 ## Other Experience
-- Volunteer for the [CocoaLove 2014 conference][16]. Worked with presenters setup and sound.
-- Member of the award winning ISS Base Station team for the 2013 International Space Apps Challenge. Our team [won 1st place][17] among Philadelphia apps. Our team also [won “Best Use of Hardware”][18] in the global judging.
-- Active Open Source Contributor: [github.com/codecaffeine][10]
+- [CocoaLove 2014 conference][16] volunteer. Worked with presenters setup and sound.
+- Award winning ISS Base Station team member for the 2013 International Space Apps Challenge. Our team [won 1st place][17] among Philadelphia apps. Our team also [won “Best Use of Hardware”][18] in the global judging.
+- Active Open Source Contributor: LayerVaultAPI, PromiseKit, TransformerKit, libPusher. See [github.com/codecaffeine][10] for more information.
 - [Philly Cocoa][11] contributor (local chapter of [CocoaHeads][12]). Talks available at: [speakerdeck.com/u/mthomas][13]
 - Philly Tech Week 2012 speaker: Mobile Lightning panel.
 - Created the iPhone fitness game GEO (discontinued) with other local iOS developers.
 
 ## Skills
-_(in order of experience)_
 
-- Objective-C and C programming using the Cocoa, CocoaTouch, and CoreFoundation frameworks
-- Debugging and performance testing with LLDB and Apple’s Instruments
-- Cocoa unit testing
-- RESTful client/server communication including JSON, OAuth2, and XML
-- iOS accessibility and usability design
-- XML processing using XSLT
-- Javascript including client side scripting frameworks such as jQuery
-- Database experience with SQLite and MySQL
-- Ruby
-- Java
-- Swift
-
+- **Languages:** C (10+), Objective-C (7), XML/XSLT (7), Javascript (6), Java (6), Ruby (4),  PHP (2), Perl (2), Swift (0.5)
+- **Frameworks:** Cocoa (7), CocoaTouch (6), CoreAnimation (4), jQuery (2), Rails (2), Sinatra (1), D3.js (1).
+- **Testing & Debugging:** Instruments (6), GDB/LLDB (5), XCUnit/SenTest (4)
+- **Databases:** MySQL (5), SQLite (5)
+- **Other:** Accessibility & Usability Design (7), OAuth2 (1), Audio Programming (1)
 
 [1]:mailto:matt@codecaffeine.com "Mail Me!"
 [2]:http://twitter.com/mthomas "Tweet Me!"
@@ -93,3 +89,4 @@ _(in order of experience)_
 [16]:http://cocoalove.org "A conference about people, not tech."
 [17]:http://technical.ly/philly/2013/04/23/nasa-space-apps-philadelphia/ "International Space Station finder wins NASA Space Apps Philadelphia"
 [18]:https://2013.spaceappschallenge.org "Global Judging round winners"
+[19]:https://itunes.apple.com/us/artist/unbound-medicine-inc./id300420400 "Unbound Medicine on the App Store"
