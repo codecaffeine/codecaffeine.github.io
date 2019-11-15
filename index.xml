@@ -6,10 +6,20 @@
     <description>Recent content on code/caffeine</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Mar 2013 09:11:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 12:49:23 -0500</lastBuildDate>
     
 	<atom:link href="http://codecaffeine.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Read Only Property Wrappers</title>
+      <link>http://codecaffeine.com/blog/read-only-property-wrappers/</link>
+      <pubDate>Sun, 10 Nov 2019 12:49:23 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/read-only-property-wrappers/</guid>
+      <description>Property Wrappers are one of my favorite additions to Swift 5.1. If you haven’t read about them before, check out the proposal and this NSHipster article. They are very similar to Kotlin’s delegated properties, but the syntax is similar to Java’s annotations.
+It may not be readily apparent, but one really nice feature of Property Wrappers is you can create “read only” property wrappers. These are properties that you can read from, but not write.</description>
+    </item>
     
     <item>
       <title>Automating Xcode Builds &amp; Distribution</title>
