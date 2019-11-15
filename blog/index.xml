@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on code/caffeine</title>
+    <link>http://codecaffeine.com/blog/</link>
+    <description>Recent content in Blogs on code/caffeine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Mar 2013 09:11:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://codecaffeine.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automating Xcode Builds &amp; Distribution</title>
+      <link>http://codecaffeine.com/blog/automating-xcode-builds-distribution/</link>
+      <pubDate>Sun, 17 Mar 2013 09:11:00 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/automating-xcode-builds-distribution/</guid>
+      <description> Here is the talk I gave for PhillyCocoa on Automating Xcode Builds &amp;amp; Distribution.
+   links  WWDC 2012 Session 404 - Building from the Command Line with Xcode Xcode Build Setting Reference Xcode “Build and Archive” from the command line - Stack Overflow Distributing Enterprise Apps for iOS Devices xcodebuild-rb - Building Xcode projects with Rake Shenzhen - CLI for Building &amp;amp; Distributing iOS Apps Cupertino - CLI for the Apple Dev Center Xcodeproj - Create and modify Xcode projects from Ruby Jenkins - An extendable open source continuous integration server Jenkins Xcode Plugin HockeyApp TestFlight cisimple  </description>
+    </item>
+    
+    <item>
+      <title>Surviving Mobile Constraints - PTW Presentation</title>
+      <link>http://codecaffeine.com/blog/surviving-mobile-constraints-ptw-presentation/</link>
+      <pubDate>Wed, 25 Apr 2012 19:16:00 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/surviving-mobile-constraints-ptw-presentation/</guid>
+      <description>This is a lightning talk I gave for the Mobile Lightning event at Philly Tech Week 2012.
+   You can also download the presentation: Keynote, PDF with notes</description>
+    </item>
+    
+    <item>
+      <title>My UIViewController Container PhillyCocoa Presentation</title>
+      <link>http://codecaffeine.com/blog/my-uiviewcontroller-container-phillycocoa-presentation/</link>
+      <pubDate>Sat, 11 Feb 2012 08:55:00 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/my-uiviewcontroller-container-phillycocoa-presentation/</guid>
+      <description>Last Thursday I did a presentation on UIViewController Containers for PhillyCocoa.
+   The example Card Stack Controller project I wrote can be found on github. Feel free to leave a comment if you have any questions, corrections, or other thoughts.
+update: If you&amp;rsquo;re having trouble running it on Xcode 4.2, please get the latest from the repository. I fixed a bug that caused a crash when built with Xcode 4.</description>
+    </item>
+    
+    <item>
+      <title>Writing a “String to Number” Function in C</title>
+      <link>http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/</link>
+      <pubDate>Sat, 17 Dec 2011 22:57:00 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/</guid>
+      <description>&lt;p&gt;Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement &lt;code&gt;atoi()&lt;/code&gt; in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement &lt;code&gt;atoi()&lt;/code&gt; yourself nowadays, sometimes it&amp;rsquo;s good practice to try it anyway.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cheap &amp; Easy Buttons for iOS Developers</title>
+      <link>http://codecaffeine.com/blog/cheap-easy-buttons-for-ios-developers/</link>
+      <pubDate>Thu, 08 Dec 2011 18:06:00 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/cheap-easy-buttons-for-ios-developers/</guid>
+      <description>&lt;p&gt;The UIButton controls in iOS are very basic. Just a white rounded rectangle with a gray border and a label. They&amp;rsquo;re made to look similar to a single grouped UITableView cell. Because of this, it&amp;rsquo;s easy to end up with a boring iOS app without creating your own images for button. So what&amp;rsquo;s a developer to do?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

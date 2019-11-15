@@ -1,362 +1,328 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>code/caffeine</title>
-  <meta name="author" content="Matt Thomas">
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>code/caffeine </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
 
-  
-  <meta name="description" content="Here is my PhillyCocoa talk on Automating Xcode Builds &amp; Distribution. links WWDC 2012 Session 404 - Building from the Command Line with Xcode &hellip;">
-  
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
-  
-  <link rel="canonical" href="http://codecaffeine.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="code/caffeine" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!-- Typekit -->
-<script type="text/javascript" src="//use.typekit.net/cot8fap.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">code/caffeine</a></h1>
-  
-    <h2>Matt Thomas, iOS Developer</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:codecaffeine.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/resume/">Résumé</a></li>
-  <li><a href="/contact/">Contact</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
+    
       
-  <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/03/17/automating-xcode-builds-and-distribution/">Automating Xcode Builds &amp; Distribution</a></h1>
+
     
     
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-03-17T09:11:00-04:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:11 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Here is my <a href="http://phillycocoa.org">PhillyCocoa</a> talk on <em>Automating Xcode Builds &amp; Distribution</em>.</p>
-
-<script async class="speakerdeck-embed" data-id="717f6270713201303b9822000a9f3a59" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<h2>links</h2>
-
-<ul>
-<li><a href="http://developer.apple.com/videos/wwdc/2012/">WWDC 2012 Session 404</a> - Building from the Command Line with Xcode</li>
-<li><a href="http://developer.apple.com/library/mac/#documentation/developertools/Reference/XcodeBuildSettingRef/">Xcode Build Setting Reference</a></li>
-<li><a href="http://stackoverflow.com/questions/2664885/xcode-build-and-archive-from-command-line/4198166#4198166">Xcode “Build and Archive” from the command line - Stack Overflow</a></li>
-<li><a href="http://developer.apple.com/library/ios/#featuredarticles/FA_Wireless_Enterprise_App_Distribution/Introduction/Introduction.html">Distributing Enterprise Apps for iOS Devices</a></li>
-<li><a href="https://github.com/lukeredpath/xcodebuild-rb">xcodebuild-rb</a> - Building Xcode projects with Rake</li>
-<li><a href="https://github.com/mattt/shenzhen/">Shenzhen</a> - CLI for Building &amp; Distributing iOS Apps</li>
-<li><a href="https://github.com/mattt/cupertino">Cupertino</a> - CLI for the Apple Dev Center</li>
-<li><a href="https://github.com/CocoaPods/Xcodeproj">Xcodeproj</a> - Create and modify Xcode projects from Ruby</li>
-<li><a href="http://jenkins-ci.org">Jenkins</a> - An extendable open source continuous integration server</li>
-<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin">Jenkins Xcode Plugin</a></li>
-<li><a href="http://hockeyapp.net">HockeyApp</a></li>
-<li><a href="http://testflightapp.com">TestFlight</a></li>
-<li><a href="http://cisimple.com">cisimple</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="code/caffeine" />
+      <link href="/index.xml" rel="feed" type="application/rss+xml" title="code/caffeine" />
       
+    
+    
+    <meta property="og:title" content="code/caffeine" />
+<meta property="og:description" content="Matt Thomas, mostly programming" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://codecaffeine.com/" />
+
+<meta property="og:updated_time" content="2013-03-17T09:11:00-05:00" />
+<meta itemprop="name" content="code/caffeine">
+<meta itemprop="description" content="Matt Thomas, mostly programming">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="code/caffeine"/>
+<meta name="twitter:description" content="Matt Thomas, mostly programming"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/25/surviving-mobile-constraints-ptw-presentation/">Surviving Mobile Constraints - PTW Presentation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2012-04-25T19:16:00-04:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2012</span></span> <span class='time'>7:16 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is a lightning talk I gave for the <em>Mobile Lightning</em> event at <a href="http://phillytechweek.com">Philly Tech Week 2012</a>.</p>
-
-<script async class="speakerdeck-embed" data-id="4f988095f1dc4a002201bec9" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<p>You can also download the presentation: <a href="http://dl.dropbox.com/u/694887/SurvivingMobileConstraints.key">Keynote</a>, <a href="http://dl.dropbox.com/u/694887/SurvivingMobileConstraints.pdf">PDF with notes</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://codecaffeine.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      code/caffeine
+    </a>
+    <div class="flex-l items-center">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/11/my-uiviewcontroller-container-phillycocoa-presentation/">My UIViewController Container PhillyCocoa Presentation</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-<time class='entry-date' datetime='2012-02-11T08:55:00-05:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2012</span></span> <span class='time'>8:55 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last Thursday I did a presentation on <em>UIViewController Containers</em> for <a href="http://phillycocoa.org">PhillyCocoa</a>.</p>
-
-<script async class="speakerdeck-embed" data-id="4f3671b268bb50001f010a8b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<p>The example <strong>Card Stack Controller</strong> project I wrote can be <a href="https://github.com/codecaffeine/CardStackController">found on github</a>. Feel free to leave a comment if you have any questions, corrections, or other thoughts.</p>
-
-<p><strong>update:</strong> If you&rsquo;re having trouble running it on Xcode 4.2, please get the latest from the repository. I fixed a bug that caused a crash when built with Xcode 4.2</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/17/writing-a-string-to-number-function-in-c/">Writing a “String to Number” Function in C</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2011-12-17T22:57:00-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>10:57 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement <code>atoi()</code> in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement <code>atoi()</code> yourself nowadays, sometimes it&rsquo;s good practice to try it anyway.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/12/17/writing-a-string-to-number-function-in-c/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/resume/" title="Resume page">
+              Resume
+            </a>
+          </li>
+          
+        </ul>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/08/cheap-and-easy-buttons-for-ios/">Cheap & Easy Buttons for iOS Developers</a></h1>
-    
-    
-      <p class="meta">
-        
+      
+
+
+
+<a href="https://twitter.com/mthomas" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
 
 
 
 
-<time class='entry-date' datetime='2011-12-08T18:06:00-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>6:06 pm</span></time>
-        
-      </p>
-    
-  </header>
+<a href="https://www.linkedin.com/in/matthew-thomas-78643026/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
 
 
-  <div class="entry-content"><p>The UIButton controls in iOS are very basic. Just a white rounded rectangle with a gray border and a label. They&rsquo;re made to look similar to a single grouped UITableView cell. Because of this, it&rsquo;s easy to end up with a boring iOS app without creating your own images for button. So what&rsquo;s a developer to do?</p>
+<a href="https://github.com/codecaffeine" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/12/08/cheap-and-easy-buttons-for-ios/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/03/17/automating-xcode-builds-and-distribution/">Automating Xcode Builds &amp; Distribution</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/25/surviving-mobile-constraints-ptw-presentation/">Surviving Mobile Constraints - PTW Presentation</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/02/11/my-uiviewcontroller-container-phillycocoa-presentation/">My UIViewController Container PhillyCocoa Presentation</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/12/17/writing-a-string-to-number-function-in-c/">Writing a “String to Number” Function in C</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/12/08/cheap-and-easy-buttons-for-ios/">Cheap & Easy Buttons for iOS Developers</a>
-      </li>
-    
-  </ul>
-</section>
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
 
 
 
 
-
-  
-</aside>
 
     </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Matt Thomas -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+</nav>
 
-</footer>
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          code/caffeine
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+    
+  </article>
+  
+  
+  
+  
+  
+  
+  
+    
+    
+
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+       
+          <h1 class="flex-none">
+            Recent Blogs
+          </h1>
+        
+
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://codecaffeine.com/blog/automating-xcode-builds-distribution/" class="color-inherit dim link">
+            Automating Xcode Builds &amp; Distribution
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+           Here is the talk I gave for PhillyCocoa on Automating Xcode Builds &amp; Distribution.
+   links  WWDC 2012 Session 404 - Building from the Command Line with Xcode Xcode Build Setting Reference Xcode “Build and Archive” from the command line - Stack Overflow Distributing Enterprise Apps for iOS Devices xcodebuild-rb - Building Xcode projects with Rake Shenzhen - CLI for Building &amp; Distributing iOS Apps Cupertino - CLI for the Apple Dev Center Xcodeproj - Create and modify Xcode projects from Ruby Jenkins - An extendable open source continuous integration server Jenkins Xcode Plugin HockeyApp TestFlight cisimple  
+        </div>
+          <a href="http://codecaffeine.com/blog/automating-xcode-builds-distribution/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://codecaffeine.com/blog/surviving-mobile-constraints-ptw-presentation/" class="color-inherit dim link">
+            Surviving Mobile Constraints - PTW Presentation
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          This is a lightning talk I gave for the Mobile Lightning event at Philly Tech Week 2012.
+   You can also download the presentation: Keynote, PDF with notes
+        </div>
+          <a href="http://codecaffeine.com/blog/surviving-mobile-constraints-ptw-presentation/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://codecaffeine.com/blog/my-uiviewcontroller-container-phillycocoa-presentation/" class="color-inherit dim link">
+            My UIViewController Container PhillyCocoa Presentation
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Last Thursday I did a presentation on UIViewController Containers for PhillyCocoa.
+   The example Card Stack Controller project I wrote can be found on github. Feel free to leave a comment if you have any questions, corrections, or other thoughts.
+update: If you&rsquo;re having trouble running it on Xcode 4.2, please get the latest from the repository. I fixed a bug that caused a crash when built with Xcode 4.
+        </div>
+          <a href="http://codecaffeine.com/blog/my-uiviewcontroller-container-phillycocoa-presentation/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/" class="link black dim">
+              Writing a “String to Number” Function in C
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://codecaffeine.com/blog/cheap-easy-buttons-for-ios-developers/" class="link black dim">
+              Cheap &amp; Easy Buttons for iOS Developers
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="http://codecaffeine.com/blog/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Blogs</a>
+        
+        </section>
+      
+
+      </div>
   
 
-<script type="text/javascript">
-      var disqus_shortname = 'codecaffeine';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://codecaffeine.com/" >
+    &copy; 2019 code/caffeine
+  </a>
+    <div>
+
+
+
+<a href="https://twitter.com/mthomas" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
 
 
 
 
+<a href="https://www.linkedin.com/in/matthew-thomas-78643026/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/codecaffeine" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
 
 
-
-<script type="text/javascript">
-(function(){
-	var script = document.createElement('script');
-	script.id = 'wrula';
-	script.type = 'text/javascript';
-	script.src = '//wrula.codecaffeine.com/js/wrula.js';
-	var first_script = document.getElementsByTagName('script')[0];
-	first_script.parentNode.insertBefore(script, first_script);
-})();
-</script>
-
-
-
-</body>
+  </body>
 </html>

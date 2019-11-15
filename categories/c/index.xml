@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on code/caffeine</title>
+    <link>http://codecaffeine.com/categories/c/</link>
+    <description>Recent content in C on code/caffeine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Dec 2011 22:57:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://codecaffeine.com/categories/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Writing a “String to Number” Function in C</title>
+      <link>http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/</link>
+      <pubDate>Sat, 17 Dec 2011 22:57:00 -0500</pubDate>
+      
+      <guid>http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/</guid>
+      <description>&lt;p&gt;Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement &lt;code&gt;atoi()&lt;/code&gt; in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement &lt;code&gt;atoi()&lt;/code&gt; yourself nowadays, sometimes it&amp;rsquo;s good practice to try it anyway.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
