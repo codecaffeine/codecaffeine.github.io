@@ -1,421 +1,197 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>code/caffeine  | Writing a “String to Number” Function in C</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-    
-      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
-    
-
-    
-
-    
-      
-    
-
-    
-    
-    <meta property="og:title" content="Writing a “String to Number” Function in C" />
-<meta property="og:description" content="Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement atoi() in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement atoi() yourself nowadays, sometimes it&rsquo;s good practice to try it anyway." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/" />
-<meta property="article:published_time" content="2011-12-17T22:57:00-05:00" />
-<meta property="article:modified_time" content="2011-12-17T22:57:00-05:00" />
-<meta itemprop="name" content="Writing a “String to Number” Function in C">
-<meta itemprop="description" content="Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement atoi() in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement atoi() yourself nowadays, sometimes it&rsquo;s good practice to try it anyway.">
-
-
-<meta itemprop="datePublished" content="2011-12-17T22:57:00-05:00" />
-<meta itemprop="dateModified" content="2011-12-17T22:57:00-05:00" />
-<meta itemprop="wordCount" content="1066">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Writing a “String to Number” Function in C"/>
-<meta name="twitter:description" content="Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement atoi() in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement atoi() yourself nowadays, sometimes it&rsquo;s good practice to try it anyway."/>
-
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="http://codecaffeine.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      code/caffeine
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Archives page">
-              Archives
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/contact/" title="Contact page">
-              Contact
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/resume/" title="Resume page">
-              Resume
-            </a>
-          </li>
-          
-        </ul>
-      
-      
-
-
-
-<a href="https://twitter.com/mthomas" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
-  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>code/caffeine | Writing a “String to Number” Function in C</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=generator content="Hugo 0.92.0">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link href=/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css rel=stylesheet>
+<meta property="og:title" content="Writing a “String to Number” Function in C">
+<meta property="og:description" content="Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement atoi() in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement atoi() yourself nowadays, sometimes it&rsquo;s good practice to try it anyway.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://codecaffeine.com/blog/writing-a-string-to-number-function-in-c/"><meta property="article:section" content="blog">
+<meta property="article:published_time" content="2011-12-17T22:57:00-05:00">
+<meta property="article:modified_time" content="2011-12-17T22:57:00-05:00">
+<meta itemprop=name content="Writing a “String to Number” Function in C">
+<meta itemprop=description content="Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement atoi() in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement atoi() yourself nowadays, sometimes it&rsquo;s good practice to try it anyway."><meta itemprop=datePublished content="2011-12-17T22:57:00-05:00">
+<meta itemprop=dateModified content="2011-12-17T22:57:00-05:00">
+<meta itemprop=wordCount content="1024">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Writing a “String to Number” Function in C">
+<meta name=twitter:description content="Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement atoi() in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement atoi() yourself nowadays, sometimes it&rsquo;s good practice to try it anyway.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=http://codecaffeine.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+code/caffeine
+</a>
+<div class="flex-l items-center">
+<ul class="pl0 mr3">
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/blog/ title="Archives page">
+Archives
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/contact/ title="Contact page">
+Contact
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/resume/ title="Resume page">
+Resume
+</a>
+</li>
+</ul>
+<a href=https://twitter.com/mthomas target=_blank class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel=noopener aria-label="follow on Twitter——Opens in a new window"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
 </span></a>
-
-
-
-
-<a href="https://www.linkedin.com/in/matthew-thomas-78643026/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
+<a href=https://www.linkedin.com/in/matthew-thomas-78643026/ target=_blank class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel=noopener aria-label="follow on LinkedIn——Opens in a new window"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
 </span></a>
-
-
-<a href="https://github.com/codecaffeine" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
+<a href=https://github.com/codecaffeine target=_blank class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel=noopener aria-label="follow on Github——Opens in a new window"><svg height="32" style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256 32C132.3 32 32 134.8 32 261.7c0 101.5 64.2 187.5 153.2 217.9 11.2 2.1 15.3-5 15.3-11.1.0-5.5-.2-19.9-.3-39.1-62.3 13.9-75.5-30.8-75.5-30.8-10.2-26.5-24.9-33.6-24.9-33.6-20.3-14.3 1.5-14 1.5-14 22.5 1.6 34.3 23.7 34.3 23.7 20 35.1 52.4 25 65.2 19.1 2-14.8 7.8-25 14.2-30.7-49.7-5.8-102-25.5-102-113.5.0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8.0.0 18.8-6.2 61.6 23.5 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 42.8-29.7 61.5-23.5 61.5-23.5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6.0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5.0 30.7-.3 55.5-.3 63 0 6.1 4 13.3 15.4 11C415.9 449.1 480 363.1 480 261.7 480 134.8 379.7 32 256 32z"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
 </span></a>
-
-
-
-
-
-    </div>
-  </div>
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-
-    <header class="mt4 w-100">
-      <p class="f6 b helvetica tracked">
-          
-        BLOGS
-      </p>
-      <h1 class="f1 athelas mb1">Writing a “String to Number” Function in C</h1>
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2011-12-17T22:57:00-05:00">December 17, 2011</time>
-      
-      
-    </header>
-
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement <code>atoi()</code> in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement <code>atoi()</code> yourself nowadays, sometimes it&rsquo;s good practice to try it anyway.</p>
-
-<h2 id="c-standard-library-interface">C Standard Library interface</h2>
-
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<p class="f6 b helvetica tracked">
+BLOGS
+</p>
+<h1 class="f1 athelas mb1">Writing a “String to Number” Function in C</h1>
+<time class="f6 mv4 dib tracked" datetime=2011-12-17T22:57:00-05:00>December 17, 2011</time>
+</header>
+<section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Years ago I was in a job interview where the employer took me to a whiteboard and asked me to implement <code>atoi()</code> in C. They also asked me to talk about any issues with my implementation. While there is hardly any reason to implement <code>atoi()</code> yourself nowadays, sometimes it&rsquo;s good practice to try it anyway.</p>
+<h2 id=c-standard-library-interface>C Standard Library interface</h2>
 <p>First lets looks at the function definition:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ man atoi
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ man atoi
 atoi -- convert ASCII string to integer
-int atoi<span style="color:#f92672">(</span>const char *str<span style="color:#f92672">)</span>;</code></pre></div>
-<p>The C standard library method <code>atoi()</code> takes in a string (character array) and returns a number. You&rsquo;ll actually notice that the man page deprecated <code>atoi()</code> in favor of <code>strtol()</code> which uses long instead of int. Our implementation will use a long instead of an int as well:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cc_stringToNumber</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string);</code></pre></div>
-<h2 id="number-theory">Number Theory</h2>
-
-<p>Before we start digging into code, what do we actually mean when we write out a number? Well according to Wikipedia&rsquo;s <a href="http://en.wikipedia.org/wiki/Number">entry on numbers</a>:</p>
-
+int atoi<span style=color:#f92672>(</span>const char *str<span style=color:#f92672>)</span>;
+</code></pre></div><p>The C standard library method <code>atoi()</code> takes in a string (character array) and returns a number. You&rsquo;ll actually notice that the man page deprecated <code>atoi()</code> in favor of <code>strtol()</code> which uses long instead of int. Our implementation will use a long instead of an int as well:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#66d9ef>long</span> <span style=color:#a6e22e>cc_stringToNumber</span>(<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>string);
+</code></pre></div><h2 id=number-theory>Number Theory</h2>
+<p>Before we start digging into code, what do we actually mean when we write out a number? Well according to Wikipedia&rsquo;s <a href=http://en.wikipedia.org/wiki/Number>entry on numbers</a>:</p>
 <p>{% blockquote %}
 In this base ten system, the rightmost digit of a natural number has a place value of one, and every other digit has a place value ten times that of the place value of the digit to its right.
 {% endblockquote %}</p>
-
 <p>Lets look at the numbers 7, 42, and 365 to see how this would work:</p>
-
-<p><strong>7</strong> = 7×1 = 7×10<sup>0</sup></p>
-
-<p><strong>42</strong> = 4×10 + 2×1 = 4×10<sup>1</sup> + 2×10<sup>0</sup></p>
-
-<p><strong>365</strong> = 3×100 + 6×10 + 5×1 = 3×10<sup>2</sup> + 6×10<sup>1</sup> + 5×10<sup>0</sup></p>
-
-<h3 id="general-rule">General Rule</h3>
-
-<p>Each character in the number string can be represented by ** *n*×10<sup><em>p</em></sup>** where <strong><em>n</em></strong> is the <strong>numerical value</strong> of the character and <strong><em>p</em></strong> is the <strong>place value</strong> of the character decreasing from <em>stringLength-1</em> to <em>0</em></p>
-
-<h4 id="getting-the-numerical-value-for-a-character">Getting the Numerical Value for a Character</h4>
-
-<p>According to the <a href="http://en.wikipedia.org/wiki/ASCII">ASCII Table</a>, numbers 0–9 have the values 48–57 respectively. We can get the numerical position by taking the ASCII value and subtracting 48.</p>
-
-<h4 id="getting-the-place-value-of-the-character">Getting the Place Value of the Character</h4>
-
+<p><strong>7</strong> = 7×1 = 7×100</p>
+<p><strong>42</strong> = 4×10 + 2×1 = 4×101 + 2×100</p>
+<p><strong>365</strong> = 3×100 + 6×10 + 5×1 = 3×102 + 6×101 + 5×100</p>
+<h3 id=general-rule>General Rule</h3>
+<p>Each character in the number string can be represented by ** <em>n</em>×10<em>p</em>** where <em><strong>n</strong></em> is the <strong>numerical value</strong> of the character and <em><strong>p</strong></em> is the <strong>place value</strong> of the character decreasing from <em>stringLength-1</em> to <em>0</em></p>
+<h4 id=getting-the-numerical-value-for-a-character>Getting the Numerical Value for a Character</h4>
+<p>According to the <a href=http://en.wikipedia.org/wiki/ASCII>ASCII Table</a>, numbers 0–9 have the values 48–57 respectively. We can get the numerical position by taking the ASCII value and subtracting 48.</p>
+<h4 id=getting-the-place-value-of-the-character>Getting the Place Value of the Character</h4>
 <p>The place value is interesting to get because while most of our counting increases from left to right, the place value increases from right to left. We can figure out the place value by finding the string length using the function <code>strlen()</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ man strlen
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ man strlen
 strlen -- find length of string
-size_t strlen<span style="color:#f92672">(</span>const char *s<span style="color:#f92672">)</span>;</code></pre></div>
-<p>Once we know the string&rsquo;s length, we can calculate the place value by subtracting the character&rsquo;s position from left to right from the string&rsquo;s length. We will also need to subtract 1 because the place value is 0 based—the right most place value is 10<sup><strong>0</strong></sup>.</p>
-
-<h2 id="first-attempt">First Attempt</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cc_stringToNumber</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string) {
-    <span style="color:#66d9ef">long</span> returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">long</span> stringLength <span style="color:#f92672">=</span> strlen(string);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> position <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; position <span style="color:#f92672">&lt;</span> stringLength; position<span style="color:#f92672">++</span>) {
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> characterValue <span style="color:#f92672">=</span> string[position] <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
-        <span style="color:#66d9ef">long</span> exponent <span style="color:#f92672">=</span> (stringLength <span style="color:#f92672">-</span> position) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-        <span style="color:#66d9ef">long</span> exponentValue <span style="color:#f92672">=</span> pow(<span style="color:#ae81ff">10</span>, exponent);
-        returnValue <span style="color:#f92672">+=</span> characterValue <span style="color:#f92672">*</span> exponentValue;
+size_t strlen<span style=color:#f92672>(</span>const char *s<span style=color:#f92672>)</span>;
+</code></pre></div><p>Once we know the string&rsquo;s length, we can calculate the place value by subtracting the character&rsquo;s position from left to right from the string&rsquo;s length. We will also need to subtract 1 because the place value is 0 based—the right most place value is 10<strong>0</strong>.</p>
+<h2 id=first-attempt>First Attempt</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc><span style=color:#66d9ef>long</span> <span style=color:#a6e22e>cc_stringToNumber</span>(<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>string) {
+    <span style=color:#66d9ef>long</span> returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>long</span> stringLength <span style=color:#f92672>=</span> strlen(string);
+    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> position <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; position <span style=color:#f92672>&lt;</span> stringLength; position<span style=color:#f92672>++</span>) {
+        <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> characterValue <span style=color:#f92672>=</span> string[position] <span style=color:#f92672>-</span> <span style=color:#ae81ff>48</span>;
+        <span style=color:#66d9ef>long</span> exponent <span style=color:#f92672>=</span> (stringLength <span style=color:#f92672>-</span> position) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+        <span style=color:#66d9ef>long</span> exponentValue <span style=color:#f92672>=</span> pow(<span style=color:#ae81ff>10</span>, exponent);
+        returnValue <span style=color:#f92672>+=</span> characterValue <span style=color:#f92672>*</span> exponentValue;
     }
-    <span style="color:#66d9ef">return</span> returnValue;
-}</code></pre></div>
-<p>Lets see how it works:
-<div class="table-figure">
-<table>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;1234&rdquo;)</code></td>
-    <td><strong>1234</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;0&rdquo;)</code></td>
-    <td><strong>0</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;Foo&rdquo;)</code></td>
-    <td><strong>2893</strong></td>
-    <td style="color:Red;">Wrong!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;-42&rdquo;)</code></td>
-    <td><strong>-258</strong></td>
-    <td style="color:Red;">Wrong!</td>
-  </tr>
-</table>
-</div></p>
-
-<p>There are 2 issues here. The first is that we&rsquo;re taking the integer value of each character wether they are a number or not. &lsquo;F&rsquo; has an ASCII value of 70 which means we calculate it&rsquo;s value to be 70-48 or 22. &lsquo;o&rsquo; has an ASCII value of 111 so we calculate it&rsquo;s value to be 63. This gives us the overall value: (22 * 10^2) + (63 * 10^1) + (63 * 10^0) = 2893. We need a solution: If we encounter any character &lt; &lsquo;0&rsquo; or &gt; &lsquo;9&rsquo;, we need to return 0 for the value.</p>
-
-<h2 id="second-attempt">Second Attempt</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cc_stringToNumber</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string) {
-    <span style="color:#66d9ef">long</span> returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> stringLength <span style="color:#f92672">=</span> strlen(string);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> position <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; position <span style="color:#f92672">&lt;</span> stringLength; position<span style="color:#f92672">++</span>) {
-        <span style="color:#66d9ef">char</span> currentCharacter <span style="color:#f92672">=</span> string[position];
-        <span style="color:#66d9ef">if</span> (currentCharacter <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">||</span> currentCharacter <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;9&#39;</span>) {
-            returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-            <span style="color:#66d9ef">break</span>;
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> characterValue <span style="color:#f92672">=</span> string[position] <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
-            <span style="color:#66d9ef">long</span> exponent <span style="color:#f92672">=</span> (stringLength <span style="color:#f92672">-</span> position) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-            <span style="color:#66d9ef">long</span> exponentValue <span style="color:#f92672">=</span> pow(<span style="color:#ae81ff">10</span>, exponent);
-            returnValue <span style="color:#f92672">+=</span> characterValue <span style="color:#f92672">*</span> exponentValue;
+    <span style=color:#66d9ef>return</span> returnValue;
+}
+</code></pre></div><p>Lets see how it works:</p>
+<p>There are 2 issues here. The first is that we&rsquo;re taking the integer value of each character wether they are a number or not. &lsquo;F&rsquo; has an ASCII value of 70 which means we calculate it&rsquo;s value to be 70-48 or 22. &lsquo;o&rsquo; has an ASCII value of 111 so we calculate it&rsquo;s value to be 63. This gives us the overall value: (22 * 10^2) + (63 * 10^1) + (63 * 10^0) = 2893. We need a solution: If we encounter any character &lt; &lsquo;0&rsquo; or > &lsquo;9&rsquo;, we need to return 0 for the value.</p>
+<h2 id=second-attempt>Second Attempt</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc><span style=color:#66d9ef>long</span> <span style=color:#a6e22e>cc_stringToNumber</span>(<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>string) {
+    <span style=color:#66d9ef>long</span> returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> stringLength <span style=color:#f92672>=</span> strlen(string);
+    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> position <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; position <span style=color:#f92672>&lt;</span> stringLength; position<span style=color:#f92672>++</span>) {
+        <span style=color:#66d9ef>char</span> currentCharacter <span style=color:#f92672>=</span> string[position];
+        <span style=color:#66d9ef>if</span> (currentCharacter <span style=color:#f92672>&lt;</span> <span style=color:#e6db74>&#39;0&#39;</span> <span style=color:#f92672>||</span> currentCharacter <span style=color:#f92672>&gt;</span> <span style=color:#e6db74>&#39;9&#39;</span>) {
+            returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+            <span style=color:#66d9ef>break</span>;
+        } <span style=color:#66d9ef>else</span> {
+            <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> characterValue <span style=color:#f92672>=</span> string[position] <span style=color:#f92672>-</span> <span style=color:#ae81ff>48</span>;
+            <span style=color:#66d9ef>long</span> exponent <span style=color:#f92672>=</span> (stringLength <span style=color:#f92672>-</span> position) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+            <span style=color:#66d9ef>long</span> exponentValue <span style=color:#f92672>=</span> pow(<span style=color:#ae81ff>10</span>, exponent);
+            returnValue <span style=color:#f92672>+=</span> characterValue <span style=color:#f92672>*</span> exponentValue;
         }
     }
-    <span style="color:#66d9ef">return</span> returnValue;
-}</code></pre></div>
-<p>Lets see how it works:
-<div class="table-figure">
-<table>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;1234&rdquo;)</code></td>
-    <td><strong>1234</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;0&rdquo;)</code></td>
-    <td><strong>0</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;Foo&rdquo;)</code></td>
-    <td><strong>0</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;-42&rdquo;)</code></td>
-    <td><strong>0</strong></td>
-    <td style="color:Red;">Wrong!</td>
-  </tr>
-</table>
-</div></p>
-
+    <span style=color:#66d9ef>return</span> returnValue;
+}
+</code></pre></div><p>Lets see how it works:</p>
 <p>Well, this is an improvement, but we&rsquo;re not handling negative numbers correctly. Negative numbers are hard for a couple of reason. The <code>-</code> sign will move the character positions off by one. The minus sign any other place in a number is also not valid numerical number. It either has to be at the beginning or not there at all.</p>
-
 <p>Our solution is to look at the first character: If it&rsquo;s not a minus sign, we&rsquo;ll run the function as normal. If it is, we&rsquo;ll run the function with a subset of the data</p>
-
-<h2 id="final-attempt">Final Attempt</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cc_stringToNumber</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string) {
-    <span style="color:#66d9ef">long</span> returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> stringLength <span style="color:#f92672">=</span> strlen(string);
-    <span style="color:#66d9ef">if</span> ((stringLength <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;&amp;</span> (<span style="color:#f92672">*</span>string <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>)) {
-        returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">-</span> cc_positiveStringToNumber(<span style="color:#f92672">++</span>string);
-    } <span style="color:#66d9ef">else</span> {
-        returnValue <span style="color:#f92672">=</span> cc_positiveStringToNumber(string);
+<h2 id=final-attempt>Final Attempt</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-objc data-lang=objc><span style=color:#66d9ef>long</span> <span style=color:#a6e22e>cc_stringToNumber</span>(<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>string) {
+    <span style=color:#66d9ef>long</span> returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> stringLength <span style=color:#f92672>=</span> strlen(string);
+    <span style=color:#66d9ef>if</span> ((stringLength <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>) <span style=color:#f92672>&amp;&amp;</span> (<span style=color:#f92672>*</span>string <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;-&#39;</span>)) {
+        returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>-</span> cc_positiveStringToNumber(<span style=color:#f92672>++</span>string);
+    } <span style=color:#66d9ef>else</span> {
+        returnValue <span style=color:#f92672>=</span> cc_positiveStringToNumber(string);
     }
-    <span style="color:#66d9ef">return</span> returnValue;
+    <span style=color:#66d9ef>return</span> returnValue;
 }
 
-<span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cc_positiveStringToNumber</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>string) {
-    <span style="color:#66d9ef">long</span> returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> stringLength <span style="color:#f92672">=</span> strlen(string);
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> position <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; position <span style="color:#f92672">&lt;</span> stringLength; position<span style="color:#f92672">++</span>) {
-        <span style="color:#66d9ef">char</span> currentCharacter <span style="color:#f92672">=</span> string[position];
-        <span style="color:#66d9ef">if</span> (currentCharacter <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">||</span> currentCharacter <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;9&#39;</span>) {
-            returnValue <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-            <span style="color:#66d9ef">break</span>;
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> characterValue <span style="color:#f92672">=</span> string[position] <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
-            <span style="color:#66d9ef">long</span> exponent <span style="color:#f92672">=</span> (stringLength <span style="color:#f92672">-</span> position) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-            <span style="color:#66d9ef">long</span> exponentValue <span style="color:#f92672">=</span> pow(<span style="color:#ae81ff">10</span>, exponent);
-            returnValue <span style="color:#f92672">+=</span> characterValue <span style="color:#f92672">*</span> exponentValue;
+<span style=color:#66d9ef>long</span> <span style=color:#a6e22e>cc_positiveStringToNumber</span>(<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>string) {
+    <span style=color:#66d9ef>long</span> returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> stringLength <span style=color:#f92672>=</span> strlen(string);
+    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>long</span> position <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; position <span style=color:#f92672>&lt;</span> stringLength; position<span style=color:#f92672>++</span>) {
+        <span style=color:#66d9ef>char</span> currentCharacter <span style=color:#f92672>=</span> string[position];
+        <span style=color:#66d9ef>if</span> (currentCharacter <span style=color:#f92672>&lt;</span> <span style=color:#e6db74>&#39;0&#39;</span> <span style=color:#f92672>||</span> currentCharacter <span style=color:#f92672>&gt;</span> <span style=color:#e6db74>&#39;9&#39;</span>) {
+            returnValue <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+            <span style=color:#66d9ef>break</span>;
+        } <span style=color:#66d9ef>else</span> {
+            <span style=color:#66d9ef>unsigned</span> <span style=color:#66d9ef>int</span> characterValue <span style=color:#f92672>=</span> string[position] <span style=color:#f92672>-</span> <span style=color:#ae81ff>48</span>;
+            <span style=color:#66d9ef>long</span> exponent <span style=color:#f92672>=</span> (stringLength <span style=color:#f92672>-</span> position) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>;
+            <span style=color:#66d9ef>long</span> exponentValue <span style=color:#f92672>=</span> pow(<span style=color:#ae81ff>10</span>, exponent);
+            returnValue <span style=color:#f92672>+=</span> characterValue <span style=color:#f92672>*</span> exponentValue;
         }
     }
-    <span style="color:#66d9ef">return</span> returnValue;
-}</code></pre></div>
-<p>Lets see how it works:
-<div class="table-figure">
-<table>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;1234&rdquo;)</code></td>
-    <td><strong>1234</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;0&rdquo;)</code></td>
-    <td><strong>0</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;Foo&rdquo;)</code></td>
-    <td><strong>0</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-  <tr>
-    <td><code>cc_stringToNumber(&ldquo;-42&rdquo;)</code></td>
-    <td><strong>-42</strong></td>
-    <td style="color:green">Correct!</td>
-  </tr>
-</table>
-</div></p>
-
+    <span style=color:#66d9ef>return</span> returnValue;
+}
+</code></pre></div><p>Lets see how it works:</p>
 <p>You&rsquo;ll see I split up the function into two different methods. <code>cc_positiveStringToNumber()</code> assumes that the string is always positive and has our current logic. <code>cc_stringToNumber()</code> has the logic to handle the negative sign. If it encounters a negative sign as the first character (and has at least one more character after it), then it performs <code>cc_positiveStringToNumber()</code> with the minus sign stripped out (++string moves the string pointer forward a character).</p>
-
 <p>This also handles just a minus sign and an empty string.</p>
-
-<h2 id="in-conclusion">In Conclusion</h2>
-
-<p>While it may be fun and educational to implement a standard function, it&rsquo;s worth noting that our method has a few limitations the C Standard Library functions don&rsquo;t have. We don&rsquo;t support the &ldquo;+&rdquo; sign for positive number (though this is an easy feature to add). More importantly, <code>strtol()</code> supports different bases like octal and hexadecimal. Finally, keep in mind that c standard library functions have been tested and optimized for years.</p><ul class="pa0">
-  
+<h2 id=in-conclusion>In Conclusion</h2>
+<p>While it may be fun and educational to implement a standard function, it&rsquo;s worth noting that our method has a few limitations the C Standard Library functions don&rsquo;t have. We don&rsquo;t support the &ldquo;+&rdquo; sign for positive number (though this is an easy feature to add). More importantly, <code>strtol()</code> supports different bases like octal and hexadecimal. Finally, keep in mind that c standard library functions have been tested and optimized for years.</p><ul class=pa0>
 </ul>
-<div class="mt6">
-      
-      
-      </div>
-    </section>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://codecaffeine.com/" >
-    &copy; 2019 code/caffeine
-  </a>
-    <div>
-
-
-
-<a href="https://twitter.com/mthomas" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
-  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-
-
-<a href="https://www.linkedin.com/in/matthew-thomas-78643026/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-<a href="https://github.com/codecaffeine" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
-  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-</span></a>
-
-
-
-
+<div class=mt6>
 </div>
-  </div>
+</section>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=http://codecaffeine.com/>
+&copy; 2022 code/caffeine
+</a>
+<div>
+<a href=https://twitter.com/mthomas target=_blank class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel=noopener aria-label="follow on Twitter——Opens in a new window"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+<a href=https://www.linkedin.com/in/matthew-thomas-78643026/ target=_blank class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel=noopener aria-label="follow on LinkedIn——Opens in a new window"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+<a href=https://github.com/codecaffeine target=_blank class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel=noopener aria-label="follow on Github——Opens in a new window"><svg height="32" style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256 32C132.3 32 32 134.8 32 261.7c0 101.5 64.2 187.5 153.2 217.9 11.2 2.1 15.3-5 15.3-11.1.0-5.5-.2-19.9-.3-39.1-62.3 13.9-75.5-30.8-75.5-30.8-10.2-26.5-24.9-33.6-24.9-33.6-20.3-14.3 1.5-14 1.5-14 22.5 1.6 34.3 23.7 34.3 23.7 20 35.1 52.4 25 65.2 19.1 2-14.8 7.8-25 14.2-30.7-49.7-5.8-102-25.5-102-113.5.0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8.0.0 18.8-6.2 61.6 23.5 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 42.8-29.7 61.5-23.5 61.5-23.5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6.0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5.0 30.7-.3 55.5-.3 63 0 6.1 4 13.3 15.4 11C415.9 449.1 480 363.1 480 261.7 480 134.8 379.7 32 256 32z"/></svg>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" width="8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</span></a>
+</div>
+</div>
 </footer>
-
-    
-
-  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
-
-
-  </body>
+<script src=/dist/js/app.3fc0f988d21662902933.js></script>
+</body>
 </html>
